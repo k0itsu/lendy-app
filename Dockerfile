@@ -3,4 +3,5 @@ COPY . /app
 WORKDIR /app
 RUN pip install -r requirements.txt
 EXPOSE 5001
-CMD [ "python", "./your-daemon-or-script.py" ]
+ENTRYPOINT ["python"]
+CMD ["lendy.py"]
