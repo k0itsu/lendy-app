@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block body %}
+  {% if session.logged_in %}
+    <form action="{{ url_for('add_item') }}" method=post class=add-item>
+      <dl>
+        <dt>Item Name:</dt>
+        <dd><input type=text size=30 name=name></dd>
+        <dt>Item Description:</dt>
+        <dd><textarea name=description rows=5 cols=40></textarea></dd>
+        <dt>Item Condition:</dt>
+        <dd><input type=text size=30 name=condition></dd>
+        <dt>Item Price:</dt>
+        <dd><input type=text size=30 name=price></dd>
+        <dt>Owner Name:</dt>
+        <dd><input type=text size=30 name=owner></dd>
+        <dd><input type=submit value=Submit></dd>
+      </dl>
+    </form>
+  {% endif %}
+  <ul class=entries>
+    {% for item in items %}
+      <li class="item_list"></li>
+      <h2>{{ item.name }}</h2>{{ item.description|safe }}
+    {% else %}
+      <li><em>There doesn't seem to be anything here. Add some items, maybe?</em></li>
+    {% endfor %}
+  </ul>
+  {% endblock %}
