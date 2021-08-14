@@ -9,6 +9,7 @@ The devops-project in my repo will also utilize this app to demonstrate basic ci
 when I add/modify the codebase.
 
 lendy.db:
+
 .schema item
 CREATE TABLE item (
 ID INTEGER PRIMARY KEY,
@@ -21,6 +22,7 @@ DateRegistered TEXT);
 
 
 .schema loan
+
 CREATE TABLE loan (
 ID INTEGER PRIMARY KEY,
 ItemID INTEGER NOT NULL REFERENCES item(ID),
@@ -29,6 +31,7 @@ DateBorrowed TEXT NOT NULL,
 DateReturned TEXT);
 
 .schema member
+
 CREATE TABLE member (
 ID INTEGER PRIMARY KEY,
 Name TEXT NOT NULL,
