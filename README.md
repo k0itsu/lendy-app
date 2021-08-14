@@ -7,3 +7,29 @@ to learn how to dockerize applications.
 
 The devops-project in my repo will also utilize this app to demonstrate basic ci/cd workflows
 when I add/modify the codebase.
+
+lendy.db:
+.schema item
+CREATE TABLE item (
+ID INTEGER PRIMARY KEY,
+Name TEXT NOT NULL,
+Description TEXT NOT NULL,
+OwnerID INTEGER NOT NULL REFERENCES member(ID),
+Price NUMERIC,
+Condition TEXT,
+DateRegistered TEXT);
+
+
+.schema loan
+CREATE TABLE loan (
+ID INTEGER PRIMARY KEY,
+ItemID INTEGER NOT NULL REFERENCES item(ID),
+BorrowerID INTEGER NOT NULL REFERENCES member(ID),
+DateBorrowed TEXT NOT NULL,
+DateReturned TEXT);
+
+.schema member
+CREATE TABLE member (
+ID INTEGER PRIMARY KEY,
+Name TEXT NOT NULL,
+Email TEXT);
